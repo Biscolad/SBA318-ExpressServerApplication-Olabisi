@@ -11,6 +11,22 @@ router.get("/", (req, res)=> {
 });
 
 
+//CREATE - POST - Add a new post to the database 
+router.post("/", (req, res) => {
+    if (req.body.manufacturer && req.body.color && req.body.antivirus) {
+      
+        const post = {
+            id: posts[posts.length - 1].id + 1,
+            manufacturer: req.body.manufacturer,
+            color: req.body.color,
+            antivirus: req.body.antivirus,
+        };
+        posts.push(post);
+        res.json(posts[posts.length - 1])
+    } else res.json({error: "Insufficient Data"});
+});
+
+
 
 
 

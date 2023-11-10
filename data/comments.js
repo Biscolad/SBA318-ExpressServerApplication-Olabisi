@@ -1,47 +1,47 @@
 const comments = [
     {
-      "product_id": 101,
+      "id": 101,
       "comments": [
         {
-          "name": "Customer1",
+          "customerName": "Customer1",
           "review": "Lorem ipsum dolor, sit amet consectetur adipisicing."
         },
         {
-          "name": "Customer2",
+          "customerName": "Customer2",
           "review": "Lorem Necessitatibus quia reiciendis similique harum!"
         }
       ]
     },
 
     {
-      "product_id": 102,
+      "id": 102,
       "comments": [
         {
-          "name": "Customer3",
+          "customerName": "Customer3",
           "review": "Lorm consequatur molestias officiis aspernatur."
         }
       ]
     },
     
     {
-      "product_id": 103,
+      "id": 103,
       "comments": [
         {
-          "name": "Customer4",
+          "customerName": "Customer4",
           "review": "Lorem officia eos nam animi sint!"
         }
       ]
     },
 
     {
-      "product_id": 104,
+      "id": 104,
       "comments": [
         {
-          "name": "Customer5",
+          "customerName": "Customer5",
           "review": "Lorem ipsum dolor sit amet consectetur."
         },
         {
-          "name": "Customer6",
+          "customerName": "Customer6",
           "review": "Lorem quasi impedit eos doloremque in."
         }
       ]
