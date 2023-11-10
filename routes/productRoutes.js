@@ -14,7 +14,7 @@ router.get("/", (req, res)=> {
 //CREATE - POST - Add a new product to database 
 router.post("/", (req, res) => {
     if (req.body.productName && req.body.price && req.body.quantity) {
-        // if(products.find((p) => p.productName == req.body.productName)) {
+        // if(products.find((prod) => prod.productName == req.body.productName)) {
         //     res.json({error: "Product Name already exists"})
         //     return;
         // }
@@ -32,6 +32,15 @@ router.post("/", (req, res) => {
 
 
 //SHOW - GET - get one product
+router.get("/:id", (req, res, next)=> {
+    //find the product id
+    const product = products.find((prod) => prod.id == req.params.id);
+
+    console.log(product);
+    //if product exist, display the json data
+    if (product) res.json(product);
+    else next()
+});
 
 
 

@@ -20,11 +20,22 @@ router.post("/", (req, res) => {
             comments: req.body.comments.customerName,
             comments: req.body.comment.review
         }; 
-           
+
         comments.push(comment);
         res.json(comments[commentss.length - 1])
     } else res.json({error: "Insufficient Data"});
 });
+
+
+//SHOW - GET - show info for one post
+router.get("/:id", (req, res, next)=> {
+    const comment = comments.find((c) => c.id == req.params.id);
+
+    console.log(comment);
+      //if post exist, display the json data
+      if (comment) res.json(comment);
+      else next()
+})
 
 
 

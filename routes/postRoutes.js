@@ -26,6 +26,16 @@ router.post("/", (req, res) => {
     } else res.json({error: "Insufficient Data"});
 });
 
+//SHOW - GET - show info for one post
+router.get("/:id", (req, res, next)=> {
+    const post = posts.find((p) => p.id == req.params.id);
+
+    console.log(post);
+      //if post exist, display the json data
+      if (post) res.json(post);
+      else next()
+})
+
 
 
 
