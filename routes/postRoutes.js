@@ -69,6 +69,14 @@ router.delete("/:id", (req, res, next) => {
 });
 
 
+//custom middleware : 404 not found
+router.use((req, res) => {
+    res.status(404);
+    res.json({ error: "Resource not found" });
+  });
+  
+
+
 
 
 
