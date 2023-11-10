@@ -38,7 +38,7 @@ const comments = [
       "comments": [
         {
           "name": "Customer5",
-          "review": "Impressive display and performance."
+          "review": "Lorem ipsum dolor sit amet consectetur."
         },
         {
           "name": "Customer6",
@@ -53,5 +53,5 @@ const comments = [
 
 
 
-  module.exports.comments;
+  module.exports = comments;
   

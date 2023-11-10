@@ -5,11 +5,13 @@ const port = 5000;
 //IMPORT DATA
 const products = require("./routes/productRoutes");
 const posts = require ("./routes/postRoutes");
+const comments = require("./routes/commentRoutes")
 
 
 //MIDDLEWARE
 app.use('/api/products', products);
 app.use('/api/posts', posts);
+app.use('/api/comments', comments);
 
 
 
