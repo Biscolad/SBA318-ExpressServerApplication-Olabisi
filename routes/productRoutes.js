@@ -34,12 +34,28 @@ router.post("/", (req, res) => {
 //SHOW - GET - get one product
 router.get("/:id", (req, res, next)=> {
     //find the product id
-    const product = products.find((prod) => prod.id == req.params.id);
+    const product = products.find((pr) => pr.id == req.params.id);
 
     console.log(product);
     //if product exist, display the json data
     if (product) res.json(product);
     else next()
+});
+
+
+//UPDATE - PUT/PATCH - update a product
+router.patch("/", (req, res, next)=> {
+    const product = products.find((pr, i)=> {
+        if(pr.id == req.params.id) {
+            for(const key in req.body) {
+                products[i][key] = req.body[key];
+            }
+            return true
+        }
+    });
+    
+    if (product) res.json(product);
+    else next();
 });
 
 

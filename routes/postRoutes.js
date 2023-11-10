@@ -26,15 +26,35 @@ router.post("/", (req, res) => {
     } else res.json({error: "Insufficient Data"});
 });
 
+
 //SHOW - GET - show info for one post
 router.get("/:id", (req, res, next)=> {
-    const post = posts.find((p) => p.id == req.params.id);
+    const post = posts.find((po) => po.id == req.params.id);
 
     console.log(post);
       //if post exist, display the json data
       if (post) res.json(post);
       else next()
-})
+});
+
+
+//UPDATE - PUT/PATCH - update a particular post
+router.patch("/:id", (req, res, next) => {
+    const post = posts.find((po, i)=> {
+        if(po.id == req.params.id) {
+            for (const key in req.body) {
+                posts[i][key] = req.body[key];
+            }
+            return true
+        }
+    });
+
+    if (post) res.json(post);
+    else next();
+});
+
+
+
 
 
 
