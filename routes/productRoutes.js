@@ -53,8 +53,21 @@ router.patch("/", (req, res, next)=> {
             return true
         }
     });
-    
+
     if (product) res.json(product);
+    else next();
+});
+
+
+//DELETE - DELETE - delete a particular product
+router.delete("/:id", (req, res, next) => {
+    const product = products.find((pr, i) => {
+        if (pr.id == req.params.id) {
+            products.splice(i, 1);
+            return true
+        }
+    });
+    if (product) res.json(product)
     else next();
 });
 

@@ -18,11 +18,11 @@ router.post("/", (req, res) => {
         const comment = {
             id: comments[comments.length - 1].id + 1,
             comments: req.body.comments.customerName,
-            comments: req.body.comment.review
+            comments: req.body.comments.review
         }; 
 
         comments.push(comment);
-        res.json(comments[commentss.length - 1])
+        res.json(comments[comments.length - 1])
     } else res.json({error: "Insufficient Data"});
 });
 
@@ -51,6 +51,19 @@ router.patch("/:id", (req, res, next)=> {
     });
     
     if (comment) res.json(comment);
+    else next();
+});
+
+
+//DELETE - DELETE - delete a comment
+router.delete("/:id", (req, res, next) => {
+    const comment = comments.find((c, i) => {
+        if (c.id == req.params.id) {
+            comments.splice(i, 1);
+            return true
+        }
+    });
+    if (comment) res.json(comment)
     else next();
 });
 
