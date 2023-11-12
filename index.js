@@ -1,6 +1,52 @@
 const express = require("express");
 const app = express();
+
+
+
+
 const port = 5000;
+
+
+//SERVE STATIC FILES FROM THE STYLES DIRECTORY
+app.use(express.static("./styles"));
+
+
+//REQUIRE THE FILE SYSTEM MODULE
+const fs = require('fs');
+
+//DEFINE THE TEMPLATE ENGINE
+app.engine("bleks", (filePath, options, callback) => {
+    fs.readFile(filePath, (err, content) => {
+        if (err) return callback(err);
+
+        //CONVERT THE CONTENT OF THE TEMPLATE TO STRING
+
+        const rendered = content
+        .toString()
+        .replaceALL("#title#", `${options.title}`)
+        .replace("#content#", `${options.content}`);
+        return callback(null, rendered);
+    });
+});
+
+//SPECIFY THE VIEWS DIRECTORY
+app.set("views", "./views");
+
+//REGISTER THE BLEKS TEMPLATE ENGINE
+
+app.set("view engine", "bleks");
+
+app.get("/", (req, res) => {
+    const options = {
+        title: "Product Catalogs",
+        content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum accusamus vel mollitia doloribus dicta, ad autem at a, neque ipsa amet? Aliquid corporis libero id ipsa animi minima ratione?"
+    };
+
+    res.render("index", options);
+});
+
+
 
 //IMPORT DATA
 const products = require("./routes/productRoutes");
