@@ -1,14 +1,11 @@
 const express = require("express");
 const app = express();
 
-
-
-
 const port = 5000;
 
 
 //SERVE STATIC FILES FROM THE STYLES DIRECTORY
-app.use(express.static("./styles"));
+app.use(express.static("./style"));
 
 
 //REQUIRE THE FILE SYSTEM MODULE
@@ -23,7 +20,7 @@ app.engine("bleks", (filePath, options, callback) => {
 
         const rendered = content
         .toString()
-        .replaceALL("#title#", `${options.title}`)
+        .replaceAll("#title#", `${options.title}`)
         .replace("#content#", `${options.content}`);
         return callback(null, rendered);
     });
@@ -40,7 +37,7 @@ app.get("/", (req, res) => {
     const options = {
         title: "Product Catalogs",
         content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolorum accusamus vel mollitia doloribus dicta, ad autem at a, neque ipsa amet? Aliquid corporis libero id ipsa animi minima ratione?"
+        "Lorem ipsum app.engine() dolor sit amet fs module consectetur adipisicing elit. Dolor dolorum accusamus vel mollitia doloribus dicta, ad autem at a, neque ipsa amet? Aliquid corporis libero id ipsa animi minima ratione?"
     };
 
     res.render("index", options);
