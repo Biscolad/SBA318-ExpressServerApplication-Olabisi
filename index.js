@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-
 const port = 5000;
 
 
@@ -49,6 +48,7 @@ app.get("/", (req, res) => {
 const products = require("./routes/productRoutes");
 const posts = require ("./routes/postRoutes");
 const comments = require("./routes/commentRoutes")
+// const form = require("./routes/formRoutes");
 
 //CUSTOM MIDDLEWARE
 const bodyParser = require("body-parser");
@@ -62,6 +62,7 @@ app.use(cookieParser());
 app.use('/api/products', products);
 app.use('/api/posts', posts);
 app.use('/api/comments', comments);
+// app.use('/api/form', form);
 app.use((err, req, res, next) => {
     res.status(500).send(err.message)
 })

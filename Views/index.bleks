@@ -13,6 +13,26 @@
     </div>
 
     <div>
+        <h2>Product Availability Inquiry Form</h2>
+        <form action="/submit-form" method="post">
+        
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
+
+            <br>
+
+            <label for="productColor">Color:</label>
+            <input type="text" id="productColor" name="productColor" required>
+
+            <br>
+
+            <label for="productDescription">Product Description:</label>
+            <textarea id="productDescription" name="productDescription" required></textarea>
+
+            <br>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
     
 </body>
