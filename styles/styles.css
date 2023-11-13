@@ -1,10 +1,13 @@
 body {
     background: #FFFFFF;
-    color: #191970;
     line-height: 30px;
     font-size: 20px;
     font-family: sans-serif;
     padding: 25px 50px;
+}
+
+#app {
+    color: #000000;
 }
 
 code {
@@ -14,6 +17,46 @@ code {
     border-radius: 10px;
 }
 
+h3 {
+    font-weight: 10px;
+}
+
+#productForm {
+
+}
+
+#productName {
+    align-content: end;
+    align-items: end;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+#productColor {
+    align-content: end;
+    align-items: end;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+#productDescription {
+    align-content: end;
+    align-items: end;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+#submit {
+    padding: 5px;
+    margin: 10px;
+
+}
+
+
+
 a {
     color: #4169E1; 
 }
@@ -22,3 +65,4 @@ a :hover {
     color: #87CEEB;
 
 }
+

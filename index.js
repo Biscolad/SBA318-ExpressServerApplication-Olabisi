@@ -4,7 +4,7 @@ const port = 5000;
 
 
 //SERVE STATIC FILES FROM THE STYLES DIRECTORY
-app.use(express.static("./style"));
+app.use(express.static("./styles"));
 
 
 //REQUIRE THE FILE SYSTEM MODULE
@@ -29,14 +29,12 @@ app.engine("bleks", (filePath, options, callback) => {
 app.set("views", "./views");
 
 //REGISTER THE BLEKS TEMPLATE ENGINE
-
 app.set("view engine", "bleks");
 
 app.get("/", (req, res) => {
     const options = {
         title: "Product Catalogs",
-        content:
-        "Lorem ipsum app.engine() dolor sit amet fs module consectetur adipisicing elit. Dolor dolorum accusamus vel mollitia doloribus dicta, ad autem at a, neque ipsa amet? Aliquid corporis libero id ipsa animi minima ratione?"
+        content: "Lorem ipsum app.engine() dolor sit amet fs module consectetur adipisicing elit. Dolor dolorum accusamus vel mollitia doloribus dicta, ad autem at a, neque ipsa amet? Aliquid corporis libero id ipsa animi minima ratione?"
     };
 
     res.render("index", options);
@@ -48,7 +46,9 @@ app.get("/", (req, res) => {
 const products = require("./routes/productRoutes");
 const posts = require ("./routes/postRoutes");
 const comments = require("./routes/commentRoutes")
-// const form = require("./routes/formRoutes");
+
+//IMPORT VIEWS
+const forms = require("./routes/formSubmissionRoutes");
 
 //CUSTOM MIDDLEWARE
 const bodyParser = require("body-parser");
@@ -62,7 +62,7 @@ app.use(cookieParser());
 app.use('/api/products', products);
 app.use('/api/posts', posts);
 app.use('/api/comments', comments);
-// app.use('/api/form', form);
+app.use('/api/formSubmission', posts);
 app.use((err, req, res, next) => {
     res.status(500).send(err.message)
 })
