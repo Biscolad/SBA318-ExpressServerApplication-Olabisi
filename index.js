@@ -41,14 +41,23 @@ app.get("/", (req, res) => {
 });
 
 
+//GET THE ROUTE TO RENDER THE FORM VIEW
+app.get("/form", (req, res) => {
+    const options = {
+        title: "Product Catalog Information",
+        content: "Enter product ID",
+
+    };
+    res.render("formView", options);
+});
+
+
 
 //IMPORT DATA
 const products = require("./routes/productRoutes");
 const posts = require ("./routes/postRoutes");
 const comments = require("./routes/commentRoutes")
-
-//IMPORT VIEWS
-const forms = require("./routes/formSubmissionRoutes");
+const formSubmission = require("./routes/formSubmissionRoutes");
 
 //CUSTOM MIDDLEWARE
 const bodyParser = require("body-parser");
@@ -62,7 +71,7 @@ app.use(cookieParser());
 app.use('/api/products', products);
 app.use('/api/posts', posts);
 app.use('/api/comments', comments);
-app.use('/api/formSubmission', posts);
+app.use('/api', formSubmission);
 app.use((err, req, res, next) => {
     res.status(500).send(err.message)
 })

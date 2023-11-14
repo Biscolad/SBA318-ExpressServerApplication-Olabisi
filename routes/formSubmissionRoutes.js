@@ -1,32 +1,26 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
+const products = require('../data/products');
+// const products = require("../routes/productRoutes");
 
 
 
-// const forms = require('./formSubmission')
 
-//CREATE - POST - Add a new post to handle form submission 
-router.post("/", (req, res) => {
+router.get("/getProduct", (req, res) => {
+        //find the product with specified id
+    const productId = parseInt(req.params.id);
+
  
-    const productName = req.body.productName;
-    const productColor = req.body.productColor;
-    const productDescription = req.body.productDescription;
+        // Find the product with the specified ID
+        const product = products.find((pr) => pr.id === productId);
 
-    res.redirect('/');
+        if (product) {
+            res.json(product);
+        } else {
+            res.status(404).json({ error: "Product not found" });
+        }
 
-    posts.push({
-        name: productName,
-        color: productColor,
-        description: productDescription,
-    });
-
-    res.json({message: 'Product successfully Added'});
-   
 });
-
-
-
-
 
 
 

@@ -19,17 +19,24 @@ code {
 
 h3 {
     font-weight: 10px;
+    margin-top: 60px;
 }
 
-#productForm {
 
-}
 
 #productName {
     align-content: end;
     align-items: end;
     padding: 5px;
     margin: 5px;
+    align-items: end;
+    align-content: end;
+    margin-left: 38px;
+    margin-top: 20px;
+    background-color: #FFFFF0;
+    border-radius: 5px;
+    width: 300px;
+    height: 20px;
 
 }
 
@@ -38,6 +45,14 @@ h3 {
     align-items: end;
     padding: 5px;
     margin: 5px;
+    align-items: end;
+    align-content: end;
+    margin-left: 55px;
+    margin-top: 20px;
+    background-color: #FFFFF0;
+    border-radius: 5px;
+    width: 300px;
+    height: 20px;
 
 }
 
@@ -46,23 +61,43 @@ h3 {
     align-items: end;
     padding: 5px;
     margin: 5px;
+    align-items: end;
+    align-content: end;
+    margin-top: 20px;
+    background-color: #FFFFF0;
+    border-radius: 5px;
+    width: 300px;
+    height: 50px;
+}
 
+.form-label {
+    text-align: right;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    
 }
 
 #submit {
-    padding: 5px;
-    margin: 10px;
-
+    background-color: #3498db;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    align-content: center;
+    cursor: pointer;
 }
 
 
+
+button:hover {
+    background-color: #7B68EE;
+}
 
 a {
-    color: #4169E1; 
+    color: #333;
+    text-decoration: none;
 }
 
-a :hover {
-    color: #87CEEB;
 
-}
+
 
