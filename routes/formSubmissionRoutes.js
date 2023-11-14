@@ -6,7 +6,7 @@ const products = require('../data/products');
 
 
 
-router.get("/getProduct", (req, res) => {
+router.get("/:id", (req, res) => {
         //find the product with specified id
     const productId = parseInt(req.params.id);
 
